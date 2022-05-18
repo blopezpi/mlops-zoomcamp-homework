@@ -1,2 +1,2 @@
 # mlops-zoomcamp-homework
-Homework exerciuses from mlops zoomcamp.
+Homework exercises from mlops zoomcamp.
