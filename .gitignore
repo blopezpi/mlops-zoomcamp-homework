@@ -49,6 +49,8 @@ coverage.xml
 *.cover
 *.py,cover
 .hypothesis/
+*.csv
+*.parquet
 .pytest_cache/
 
 # Translations
