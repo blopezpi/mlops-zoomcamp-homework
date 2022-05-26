@@ -1,0 +1,8 @@
+mlflow
+numpy
+pandas
+hyperopt
+scikit-learn
+pyarrow
+fastparquet
+matplotlib

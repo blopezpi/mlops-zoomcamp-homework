@@ -50,7 +50,6 @@ coverage.xml
 *.py,cover
 .hypothesis/
 *.csv
-*.parquet
 .pytest_cache/
 
 # Translations
@@ -129,3 +128,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Other files
+*.parquet
+*.db
+**/artifacts/**/
+*.pkl
+**/mlruns/**
