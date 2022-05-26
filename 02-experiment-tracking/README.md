@@ -49,7 +49,7 @@ $ mlflow ui
 
 ![Autolog Experiment](images/experiment_autolog.png)
 
-The parameters register with `autlog` are 18:
+The parameters register with `autolog` are 18:
 
 ![Autolog Paramaters](images/how_many_parameters.png)
 
