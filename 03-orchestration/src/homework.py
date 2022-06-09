@@ -31,7 +31,7 @@ def prepare_features(df, categorical, train=True):
         logger.info(f"The mean duration of training is {mean_duration}")
     else:
         logger.info(f"The mean duration of validation is {mean_duration}")
-    
+
     df[categorical] = df[categorical].fillna(-1).astype('int').astype('str')
     return df
 
@@ -40,7 +40,7 @@ def train_model(df, categorical):
     logger = get_run_logger()
     train_dicts = df[categorical].to_dict(orient='records')
     dv = DictVectorizer()
-    X_train = dv.fit_transform(train_dicts) 
+    X_train = dv.fit_transform(train_dicts)
     y_train = df.duration.values
 
     logger.info(f"The shape of X_train is {X_train.shape}")
@@ -57,7 +57,7 @@ def train_model(df, categorical):
 def run_model(df, categorical, dv, lr):
     logger = get_run_logger()
     val_dicts = df[categorical].to_dict(orient='records')
-    X_val = dv.transform(val_dicts) 
+    X_val = dv.transform(val_dicts)
     y_pred = lr.predict(X_val)
     y_val = df.duration.values
 
@@ -79,7 +79,7 @@ def get_paths(date: str=None) -> Tuple:
         date_converted = datetime.strptime(date, "%Y-%m-%d")
         train_date = (date_converted - relativedelta(months=2)).strftime("%Y-%m")
         val_date = (date_converted - relativedelta(months=1)).strftime("%Y-%m")
-    
+
     download_uri = "https://s3.amazonaws.com/nyc-tlc/trip+data/"
     output_path = "data/"
     paths=[]
@@ -112,7 +112,7 @@ def main(date: str=None) -> None:
     # train the model
     lr, dv = train_model(df_train_processed, categorical).result()
 
-    
+
     if not date:
         date = datetime.now().strftime("%Y-%m-%d")
     with open(f'models/model-{date}.bin', 'wb') as f_out:
