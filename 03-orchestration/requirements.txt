@@ -1,0 +1,7 @@
+numpy
+pandas
+scikit-learn
+pyarrow
+fastparquet
+matplotlib
+prefect==2.0b5

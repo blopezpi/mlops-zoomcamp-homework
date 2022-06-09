@@ -133,5 +133,6 @@ dmypy.json
 *.parquet
 *.db
 **/artifacts/**/
+*.bin
 *.pkl
 **/mlruns/**
