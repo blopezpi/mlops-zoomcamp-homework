@@ -129,7 +129,7 @@ DeploymentSpec(
     name="model_training",
     flow=main,
     tags=["mlops"],
-    parameters={"date": "2021-08-15"},
+    #parameters={"date": "2021-08-15"},
     flow_runner=SubprocessFlowRunner(),
     schedule=CronSchedule(
         cron="0 9 15 * *",
