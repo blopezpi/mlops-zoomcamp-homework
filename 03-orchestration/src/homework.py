@@ -9,6 +9,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import requests
 import pickle
+from prefect.context import get_run_context
 from prefect.deployments import DeploymentSpec
 from prefect.orion.schemas.schedules import CronSchedule
 from prefect.flow_runners import SubprocessFlowRunner
@@ -98,6 +99,9 @@ def get_paths(date: str=None) -> Tuple:
 
 @flow
 def main(date: str=None) -> None:
+
+    # Get the current context for the flow
+    #context=get_run_context()
 
     train_path, val_path = get_paths(date).result()
 
