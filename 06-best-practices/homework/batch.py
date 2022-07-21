@@ -11,10 +11,11 @@ import pandas as pd
 
 
 def set_options() -> Dict:
-    options = {"client_kwargs": {}}
+    options = {}
     S3_ENDPOINT_URL = os.environ.get("S3_ENDPOINT_URL")
 
     if S3_ENDPOINT_URL is not None:
+        options["client_kwargs"] = {}
         options["client_kwargs"]["endpoint_url"] = S3_ENDPOINT_URL
     return options
 
@@ -42,7 +43,7 @@ def prepare_data(df: pd.DataFrame, categorical: List) -> pd.DataFrame:
 def get_input_path(year: int, month: int) -> str:
     default_input_pattern = (
         "https://raw.githubusercontent.com/"
-        "alexeygrigorev/datasets/master/nyc-tlc/fhv/fhv_tripdata_{year:04d}-{month:02d}.parquet"
+        f"alexeygrigorev/datasets/master/nyc-tlc/fhv/fhv_tripdata_{year:04d}-{month:02d}.parquet"
     )
     input_pattern = os.getenv("INPUT_FILE_PATTERN", default_input_pattern)
     return input_pattern.format(year=year, month=month)
